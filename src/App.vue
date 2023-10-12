@@ -1,5 +1,7 @@
 <template>
+
   <div id="app">
+    <main> </main>
     <v-app>
       <v-banner
         v-if="deferredPrompt"
@@ -8,24 +10,32 @@
         class="text-left"
       >
         Install our Apps 
-        
+         
         <template v-slot:actions>
           <v-btn text @click="dismiss">Dismiss</v-btn>
           <v-btn text @click="install">Install</v-btn>
         </template>
       </v-banner>
+         
       <router-view>
         
       </router-view>
     </v-app>
+ 
   </div>
+
+
 </template>
 
 <script>
 import Cookies from "js-cookie";
+import Main from './views/Main.vue';
+
+
 export default {
   name: "App",
-  data() {
+  components:{Main},
+data() {
     return {
       deferredPrompt: null
     };
@@ -44,6 +54,7 @@ window.addEventListener("appinstalled", () => {
     });
   },
   methods: {
+
     async dismiss() {
       Cookies.set("add-to-home-screen", null, { expires: 15 });
       this.deferredPrompt = null;
@@ -54,5 +65,7 @@ window.addEventListener("appinstalled", () => {
     }
   }
 };
+
 </script>
+
 
