@@ -8,9 +8,6 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
-        <link href="<?=base_url()?>https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-     
-        <script src="<?=base_url()?>https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -93,43 +90,7 @@
                                 DataTable Example
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Product Name</th>
-                                            <th>Description</th>
-                                            <th>Category</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Image</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Product Name</th>
-                                            <th>Description</th>
-                                            <th>Category</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Image</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                       
-                                            <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>></td>
-                                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal<?=$pro['id']?>" >Edit</button><a href="/delete/<?=$pro['id']?>" class="btn btn-danger">Delete</a></td>
-                                        </tr>
-                                            
-                                  </tbody>
-                                </table>
+                            
                             </div>
                         </div>
                     </div>
@@ -147,22 +108,41 @@
                     </div>
                 </footer>
             </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<?= base_url()?>admin/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="<?= base_url()?>admin/assets/demo/chart-area-demo.js"></script>
-        <script src="<?= base_url()?>admin/assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="<?= base_url()?>admin/js/datatables-simple-demo.js"></script>
+       
+    
+</body>
+</html>
         
 </template>
 <script>
 export default{
+    name:"Manage",
+     mounted() {
+    this.loadScripts([
+      '/admin/js/scripts.js',
+      '/admin/demo/chart-area-demo.js',
+      '/admin/demo/chart-bar-demo.js',
+      '/admin/js/datatables-simple-demo.js',
+      // Add more paths as needed
+    ]);
+  },
+  methods: {
+    loadScripts(scriptUrls) {
+      const head = document.getElementsByTagName('head')[0];
 
+      scriptUrls.forEach((scriptUrl) => {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = scriptUrl;
+        script.async = true;
+        head.appendChild(script);
+      });
+    }
+  }
 }
 </script>
-<style>
-@import '@/admin/css/styles.css'
+<style lang="css">
+    @import '@/assets/admin/css/styles.css'
 </style>
+
+
