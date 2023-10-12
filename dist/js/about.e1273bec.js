@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkgroupings"]=self["webpackChunkgroupings"]||[]).push([[443],{6589:function(n,u,r){r.r(u),r.d(u,{default:function(){return g}});var s=r(3396);const t={class:"about"},a=(0,s._)("h1",null,"This is an about page",-1),e=[a];function i(n,u){return(0,s.wg)(),(0,s.iD)("div",t,e)}var c=r(89);const o={},f=(0,c.Z)(o,[["render",i]]);var g=f}}]);
+//# sourceMappingURL=about.e1273bec.js.map
